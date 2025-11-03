@@ -202,9 +202,17 @@
     "syncSaveCtxMenu": false,
     "syncSaveStyles": false,
     "syncSaveKeybindings": false,
-    "selectActiveTabFirst": true
+    "selectActiveTabFirst": true,
+		"selectCyclic": true
   },
   "sidebar": {
+    "nav": [
+      "mHdm4qcEzgoY",
+      "KUtyp1Fd7fi7",
+      "add_tp",
+      "sp-0",
+      "settings"
+    ],
     "panels": {
       "KUtyp1Fd7fi7": {
         "type": 2,
@@ -224,14 +232,43 @@
         "bookmarksFolderId": -1,
         "newTabBtns": [],
         "srcPanelConfig": null
+      },
+      "mHdm4qcEzgoY": {
+        "type": 2,
+        "id": "mHdm4qcEzgoY",
+        "name": "Tabs",
+        "color": "toolbar",
+        "iconSVG": "icon_tabs",
+        "iconIMGSrc": "",
+        "iconIMG": "",
+        "lockedPanel": false,
+        "skipOnSwitching": false,
+        "noEmpty": false,
+        "newTabCtx": "none",
+        "dropTabCtx": "none",
+        "moveRules": [],
+        "moveExcludedTo": -1,
+        "bookmarksFolderId": -1,
+        "newTabBtns": [],
+        "srcPanelConfig": null
       }
-    },
-    "nav": [
-      "KUtyp1Fd7fi7",
-      "add_tp",
-      "sp-0",
-      "settings"
-    ]
+    }
   },
-  "ver": "5.2.0"
+  "ver": "5.3.3",
+  "keybindings": {
+    "_execute_sidebar_action": "Ctrl+E",
+    "next_panel": "Alt+Period",
+    "prev_panel": "Alt+Comma",
+    "new_tab_on_panel": "Ctrl+Space",
+    "new_tab_in_group": "Ctrl+Shift+Space",
+    "rm_tab_on_panel": "Alt+P",
+    "up": "Alt+K",
+    "down": "Alt+J",
+    "up_shift": "Alt+Shift+Up",
+    "down_shift": "Alt+Shift+Down",
+    "activate": "Alt+U",
+    "reset_selection": "Alt+R",
+    "duplicate_tabs": "Alt+C",
+    "pin_tabs": "Alt+G"
+  }
 }
