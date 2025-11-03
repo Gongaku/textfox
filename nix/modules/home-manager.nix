@@ -1,11 +1,11 @@
 inputs: {config, lib, pkgs, ...}:
-let 
+let
   inherit (pkgs.stdenv.hostPlatform) system;
   package = inputs.self.packages.${system}.default;
   configDir =
     if pkgs.stdenv.hostPlatform.isDarwin
-    then "Library/Application\ Support/Firefox/Profiles/"
-    else ".mozilla/firefox/";
+    then "Library/Application\ Support/Librewolf/Profiles/"
+    else ".librewolf/";
   extensionList = [ inputs.firefox-addons.packages.${system}.sidebery ];
 
   cfg = config.textfox;
