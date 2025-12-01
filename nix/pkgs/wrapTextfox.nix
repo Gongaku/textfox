@@ -2,8 +2,8 @@
   lib,
   wrapFirefox,
   runCommandLocal
-}: 
-  browser: { 
+}:
+  browser: {
     configCss ? "",
     extraUserChrome ? "",
     extraUserContent ? "",
@@ -52,7 +52,7 @@
       Cu.import("resource://gre/modules/FileUtils.jsm");
       var updated = false;
 
-      // Create nsiFile objects 
+      // Create nsiFile objects
       var chromeDir = Services.dirsvc.get("ProfD", Ci.nsIFile);
       chromeDir.append("chrome");
 
@@ -79,7 +79,7 @@
           updated = true;
       }
 
-      // Restart Firefox immediately if one of the files got updated
+      // Restart Librewolf immediately if one of the files got updated
       if (updated === true) {
           // Write into storage the iteration of the config via nix hash
           hashFile.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0b100100100);
@@ -98,8 +98,8 @@
 
   in wrapFirefox browser (
     lib.removeAttrs args [
-      "configCss" 
-      "extraUserChrome" 
+      "configCss"
+      "extraUserChrome"
       "extraUserContent"
     ] // {
       pname = args.pname or "textfox";

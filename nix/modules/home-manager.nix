@@ -26,7 +26,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.firefox = {
+    programs.librewolf = {
       enable = true;
       profiles."${cfg.profile}" = {
         extraConfig = builtins.readFile "${package}/user.js";

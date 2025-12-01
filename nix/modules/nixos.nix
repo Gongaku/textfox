@@ -9,7 +9,7 @@ inputs: {
   inherit (lib.attrsets) optionalAttrs;
   inherit (lib.types) listOf path str;
   inherit (lib.trivial) boolToString;
-  
+
   inherit (pkgs.stdenv.hostPlatform) system;
   wrapTextfox = inputs.self.packages.${system}.wrapTextfox;
 
@@ -18,7 +18,7 @@ in {
   imports = [./options.nix];
 
   options.textfox = {
-    package = mkPackageOption pkgs "firefox-unwrapped" {};
+    package = mkPackageOption pkgs "librewolf-unwrapped" {};
 
     extraPoliciesFiles = mkOption {
       type = listOf path;
@@ -67,10 +67,10 @@ in {
       '';
 
     in [(wrapTextfox cfg.package {
-      inherit (cfg) 
-        extraPoliciesFiles 
-        extraPrefsFiles 
-        extraUserChrome 
+      inherit (cfg)
+        extraPoliciesFiles
+        extraPrefsFiles
+        extraUserChrome
         extraUserContent
         configCss;
 

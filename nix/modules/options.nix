@@ -17,10 +17,10 @@ in {
 
   options.textfox = {
     enable = mkEnableOption "Textfox.";
-          
+
     config = {
       displayWindowControls = mkEnableOption "window controls.";
-      displayNavButtons = mkEnableOption "back and forward navigation buttons in the Firefox UI.";
+      displayNavButtons = mkEnableOption "back and forward navigation buttons in the Librewolf UI.";
       displayUrlbarIcons = mkEnableOption "icons inside url bar.";
       displaySidebarTools = mkEnableOption "sidebar tools section." // {default = true;};
 
@@ -93,7 +93,7 @@ in {
       icons = {
         toolbar.extensions.enable = mkEnableOption "monochrome extension toolbar buttons.";
         context.extensions.enable = mkEnableOption "monochrome extension context menu items.";
-        context.firefox.enable = mkEnableOption "icons for common context menu items.";
+        context.librewolf.enable = mkEnableOption "icons for common context menu items.";
       };
 
       tabs = {
@@ -116,6 +116,25 @@ in {
         type = str;
         default = "none";
         description = "Text transform to use";
+      };
+
+      navbar = {
+        margin = mkOption {
+          type = str;
+          default = "8px 8px 2px";
+          description = "Navbar margin";
+        };
+        padding = mkOption {
+          type = str;
+          default = "4px";
+          description = "Navbar padding";
+        };
+      };
+
+      bookmarks.alignment = mkOption {
+        type = str;
+        default = "center";
+        description = "Alignment of bookmarks in the bookmarks toolbar (if you have many bookmarks, left is recommended)";
       };
     };
 
@@ -142,6 +161,9 @@ in {
           --tf-display-sidebar-tools: ${if cfg.displaySidebarTools then "flex" else "none"};
           --tf-display-titles: ${if cfg.displayTitles then "flex" else "none"};
           --tf-newtab-logo: "${cfg.newtabLogo}";
+          --tf-navbar-margin: ${cfg.navbar.margin};
+          --tf-navbar-padding: ${cfg.navbar.padding};
+          --tf-bookmarks-alignment: ${cfg.bookmarks.alignment};
         }
         ${cfg.extraConfig}
       '';
